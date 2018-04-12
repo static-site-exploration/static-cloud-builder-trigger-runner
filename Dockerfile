@@ -1,5 +1,10 @@
-FROM gcr.io/cloud-builders/gsutil
+FROM alpine
+#gcr.io/cloud-builders/gsutil
 
-COPY #run.sh to .
+# Install curl
 
-ENTRYPOINT ["gsutil", "command", ]
+# Copy bash script into image
+COPY run-trigger.bash .
+RUN chmod +x run-trigger.bash
+
+ENTRYPOINT ["run-trigger.bash"]
